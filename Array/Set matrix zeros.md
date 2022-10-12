@@ -1,10 +1,17 @@
 [Question link](https://leetcode.com/problems/set-matrix-zeroes/)
 # Set matrix zeros
 
-## Problem statement
-
 Given an m x n integer matrix, if an element is 0, set its entire row and column to 0's, and return the matrix.
-
+![img](https://assets.leetcode.com/uploads/2020/08/17/mat1.jpg)
+```
+Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+```
+![img](https://assets.leetcode.com/uploads/2020/08/17/mat2.jpg)
+```
+Input: matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
+Output: [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
+```
 ## Approach 1 (Using 2d matrix)
 
 Time complexity : O(M\*N\*(M+N))  
@@ -21,11 +28,9 @@ void setZeroes(vector<vector<int>>& matrix) {
                 for(q=0; q<n; q++) z[i][q]=0;
             }
         
-    
     for(i=0; i<m; i++) 
         for(j=0; j<n; j++) 
             matrix[i][j] *= z[i][j];
-        
     
 }
 ```
