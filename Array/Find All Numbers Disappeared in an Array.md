@@ -10,7 +10,7 @@ Example 2:
 Input: nums = [1,1]
 Output: [2]
 ```
-## Solution
+## Solution :: Cycle sort
 Time : O(N)
 Space : O(1)
 ```cpp
