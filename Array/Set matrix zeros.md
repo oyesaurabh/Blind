@@ -68,22 +68,18 @@ Time complexity : O(M\*N)
 Space complexity : O(M+N)
 
 ```cpp
-void setZeroes(vector<vector<int>>& matrix) {
-    int i, j, m=matrix.size(), n=matrix[0].size();
-    vector<int> row(m, -1);
-    vector<int> col(n, -1);
-    for(i=0; i<m; i++) 
-        for(j=0; j<n; j++) 
-            if(matrix[i][j]==0)
-                row[i] = col[j] = 0;
-        
-    
-    for(i=0; i<m; i++) 
-        for(j=0; j<n; j++) 
-            if(row[i]==0 || col[j]==0)
-                matrix[i][j]=0;
-        
-    
+void setZeroes(vector<vector<int>>& a) {
+    int n=a.size(), m=a[0].size();
+    vector<int> row(n,1),col(m,1);
+    for(int i=0;i<n;i++)
+        for(int j=0;j<m;j++)
+            if(a[i][j]==0)
+                row[i]=col[j]=0;
+
+    for(int i=0;i<n;i++)
+    for(int j=0;j<m;j++)
+        if(row[i]==0 || col[j]==0)
+            a[i][j]=0;
 }
 ```
 
@@ -94,28 +90,28 @@ Space complexity : O(1)
 
 ```cpp
 void setZeroes(vector<vector<int>>& matrix) {
-    int i, j, m=matrix.size(), n=matrix[0].size();
-    bool fr=0, fc=0;
-    for(i=0; i<m; i++) if(matrix[i][0]==0) fc=1;
-    for(j=0; j<n; j++) if(matrix[0][j]==0) fr=1;
-    for(i=1; i<m; ++i) 
-        for(j=1; j<n; ++j) 
-            if(matrix[i][j] == 0)
-                matrix[i][0]=matrix[0][j]=0;
-        
+    bool r=0,c=0;
+    int n=a.size(), m=a[0].size();
+    for(int i=0;i<n;i++)if(a[i][0]==0){r=1;break;}
+    for(int j=0;j<m;j++)if(a[0][j]==0){c=1;break;}
     
-    for(i=1; i<m; i++) 
-        if(matrix[i][0]==0)
-            for(j=1; j<n; j++)
-                matrix[i][j]=0;
+    for(int i=1;i<n;i++)
+        for(int j=1;j<m;j++)
+            if(a[i][j]==0)
+                a[i][0]=a[0][j]=0;
+    //traversing 0th column
+    for(int i=1;i<n;i++)
+        if(a[i][0]==0)
+            for(int j=1;j<m;j++)
+                a[i][j]=0;
+    //traversing 0th row
+    for(int j=1;j<m;j++)
+        if(a[0][j]==0)
+            for(int i=1;i<n;i++)
+                a[i][j]=0;
     
-    for(j=1; j<n; j++) 
-        if(matrix[0][j]==0)
-            for(i=1; i<m; i++)
-                matrix[i][j]=0;
-    
-    if(fc) for(i=0; i<m; i++) matrix[i][0]=0;
-    if(fr) for(j=0; j<n; j++) matrix[0][j]=0;
+    if(r) for(int i=0;i<n;i++) a[i][0]=0;
+    if(c) for(int j=0;j<m;j++) a[0][j]=0;
 }
 ```
 
