@@ -43,6 +43,7 @@ public int missingNumber(int[] nums) { //xor
 }
 ```
 ## BS
+Time O(logN) Space O(1)
 ```cpp
 public int missingNumber(int[] nums) { //binary search
     Arrays.sort(nums);
