@@ -1,0 +1,17 @@
+[Link](https://leetcode.com/problems/count-square-submatrices-with-all-ones/)
+# Count Square Submatrices with All Ones
+Example 1:
+```
+Input: matrix =
+[
+  [0,1,1,1],
+  [1,1,1,1],
+  [0,1,1,1]
+]
+Output: 15
+Explanation: 
+There are 10 squares of side 1.
+There are 4 squares of side 2.
+There is  1 square of side 3.
+Total number of squares = 10 + 4 + 1 = 15.
+```
