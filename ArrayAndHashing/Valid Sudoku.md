@@ -35,3 +35,27 @@ Input: board =
 
 Output: false
 ```
+
+## Solution
+
+```cpp
+    bool isValidSudoku(vector<vector<char>>& a) {
+        int row[9][9]={0}, col[9][9]={0}, box[9][9]={0};
+
+        for(int i=0;i<9;i++){
+            for(int j=0;j<9;j++){
+                if(a[i][j] == '.')continue;
+
+                int num=a[i][j]-'0';
+                int k=(i/3)*3+j/3;
+                if( row[i][num-1] || col[num-1][j] || box[k][num-1] )
+                    return false;
+                else
+                    row[i][num-1]=true,
+                    col[num-1][j]=true,
+                    box[k][num-1]=true;
+            }
+        }
+        return true;
+    }
+```
